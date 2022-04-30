@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch ,useSelector } from 'react-redux'
 import {increment,decrement} from "./slices/counterSlice";
 
 
 function App() {
 
   const dispatch=useDispatch();
+
+  const state=useSelector(state=>state.counterSlice)
 
 
   const incrementClick=()=>{
@@ -40,6 +42,12 @@ function App() {
   }
   return (
     <div className="App">
+      <h1>
+      {
+        state.value
+      }
+      </h1>
+   
       <button onClick={incrementClick}>
 
         Increment
