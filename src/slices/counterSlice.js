@@ -6,7 +6,7 @@ const initialState = {
 }
 
 export const counterSlice = createSlice({
-  name: 'counter',
+  name: 'todo',
   initialState,
   reducers: {
       //action
@@ -17,19 +17,20 @@ export const counterSlice = createSlice({
       // immutable state based off those changes
       state.value += 1
     },
-    decrement: (state) => {
+    addItems: (state) => {
       state.value -= 1
     },
-    multipliyByAmounty:()=>{
-
+    multipliyByAmounty:(state)=>{
+      state.value *= 2
     },
     incrementByAmount: (state, action) => {
+      debugger;
       state.value += action.payload
     },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const { increment, decrement, incrementByAmount,multipliyByAmounty } = counterSlice.actions
 
 export default counterSlice.reducer

@@ -2,7 +2,8 @@ import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
 import { useDispatch ,useSelector } from 'react-redux'
-import {increment,decrement} from "./slices/counterSlice";
+import {increment,decrement,multipliyByAmounty,incrementByAmount} from "./slices/counterSlice";
+import Todo from './components/Todo';
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
 
     //console.log("hi")
 
-    dispatch(increment());
+    dispatch(incrementByAmount(22));
 
     // --->dispatch an action -->
 
@@ -27,6 +28,11 @@ function App() {
   }
 
 
+
+  const multiplyclick=()=>{
+    dispatch(multipliyByAmounty())
+
+  }
   const decrementClick=()=>{
 
     //console.log("hi")
@@ -42,7 +48,10 @@ function App() {
   }
   return (
     <div className="App">
-      <h1>
+      {
+        /**
+         * 
+         *  <h1>
       {
         state.value
       }
@@ -62,6 +71,20 @@ Decrement
 
 
 </button>
+
+
+<button onClick={multiplyclick}>
+
+
+Multiply
+
+
+</button>
+         */
+      }
+
+      <Todo/>
+     
       
     </div>
   )
