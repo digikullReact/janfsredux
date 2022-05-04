@@ -5,6 +5,6 @@ import todoslice from '../slices/todoslice'
 export const store = configureStore({
   reducer: {
       counterSlice:counterSlice,
-      todoslice:todoslice
+      todoslicec:todoslice
   },
 })

@@ -35,7 +35,7 @@ const Todo = () => {
 
     //
     value.id=uuid();
-    dispatch(addItems(value))
+    dispatch(addItems(value))  // we are sending the data from here --->
 
   }
   return (
