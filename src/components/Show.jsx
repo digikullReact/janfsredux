@@ -41,6 +41,13 @@ const Show = () => {
             Delete
         </Button>
   
+      },width: 230},
+
+      {field:'name' ,headerName:'Edit', renderCell:(params)=>{
+        return <Button variant="contained" onClick={()=>clickDelete(params)}>
+       Edit
+        </Button>
+  
       },width: 230}
      
     ];

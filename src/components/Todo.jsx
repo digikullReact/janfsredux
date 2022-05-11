@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{useEffect}from 'react'
 import { addItems } from '../slices/todoslice'
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -8,8 +8,10 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import uuid from 'react-uuid'
 
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import Show from './Show';
+import { toDo ,getTodo} from '../thunks/todo';
+
 
 
 
@@ -17,6 +19,9 @@ import Show from './Show';
 
 
 const Todo = () => {
+
+  const dataTodo=useSelector(state=>state)
+
   const [value, setValue] = React.useState({
     task:"",
     date:""
@@ -30,6 +35,15 @@ const Todo = () => {
 
   }
 
+
+  useEffect(()=>{
+
+     debugger;
+
+    dispatch(getTodo())
+
+  },[])
+
   const buttonClick=()=>{
     //console.log(value);
 
@@ -41,6 +55,10 @@ const Todo = () => {
   return (
     <Box sx={{ flexGrow: 1 }} style={{marginTop:"200px"}}>
     <Grid container spacing={3}>
+
+      <h1>
+        {dataTodo.obj.title}
+      </h1>
 
     <Grid item xs={6}>
     <TextField id="outlined-basic" onChange={handleChange} name="task" label="Task" variant="outlined" style={{width:"260px"}} /> <br/>

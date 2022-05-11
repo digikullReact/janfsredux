@@ -1,9 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+import { toDo,getTodo } from '../thunks/todo';
+
 const initialState = {
  
 items:[],
-address:""
+address:"",
+
+obj:{}
 
 }
 
@@ -20,6 +24,8 @@ const todoslice=createSlice({
         },
         deleteItem:(state,action)=>{
 
+            // here the action would contain the data from the user --->
+
            const filteredItems= state.items.filter(ele=>ele.id!=action.payload)
            state.items=filteredItems;
 
@@ -28,7 +34,52 @@ const todoslice=createSlice({
 
         }
         
-    }
+    },
+    extraReducers: (builder) => {
+
+        //the 
+
+        builder.addCase(toDo.pending,(state,action)=>{
+
+
+
+
+        }),
+
+        builder.addCase(toDo.fulfilled,(state,action)=>{
+            
+            state.obj=action.payload;
+
+        }),
+
+
+         builder.addCase(toDo.rejected,(state,action)=>{
+           
+
+         }),
+
+         // Get To do Actions REducer
+
+         builder.addCase(getTodo.pending,(state,action)=>{
+
+            debugger;
+
+
+
+
+        }),
+
+        builder.addCase(getTodo.fulfilled,(state,action)=>{
+            debugger;
+            state.obj=action.payload;
+
+        }),
+         builder.addCase(getTodo.rejected,(state,action)=>{
+
+         })
+    
+      
+      },
 
 
 
